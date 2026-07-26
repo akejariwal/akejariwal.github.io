@@ -1,18 +1,24 @@
 <header class="site-header" role="banner">
   <div class="wrapper custom-header">
     
-    <!-- Left: Profile Photo, Name, and Title -->
+    <!-- Left Profile Section -->
     <div class="header-profile">
       <a class="profile-link" href="{{ '/' | relative_url }}">
-        <img src="{{ '/assets/images/profile.jpg' | relative_url }}" alt="Ankit Kejariwal" class="profile-photo">
+        <div class="profile-photo-wrapper">
+          <img src="{{ '/assets/images/profile.jpg' | relative_url }}" 
+               alt="Arun Kejariwal" 
+               class="profile-photo"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="profile-avatar-fallback">AK</div>
+        </div>
         <div class="profile-text">
-          <span class="profile-name">Ankit Kejariwal</span>
+          <span class="profile-name">Arun Kejariwal</span>
           <span class="profile-title">AI Research & Systems</span>
         </div>
       </a>
     </div>
 
-    <!-- Right: Explicit Link to Publications -->
+    <!-- Right Navigation Section -->
     <nav class="site-nav">
       <div class="trigger">
         <a class="page-link" href="{{ '/publications/' | relative_url }}">Publications</a>

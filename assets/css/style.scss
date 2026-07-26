@@ -2,37 +2,91 @@
 ---
 @import "{{ site.theme }}";
 
+/* Flexbox Header Container */
 .custom-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 18px 0;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 24px 0 !important;
 }
 
+.header-profile {
+  display: flex;
+  align-items: center;
+}
+
+.profile-link {
+  display: flex !important;
+  align-items: center !important;
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+/* Photo and Fallback Avatar Circle */
+.profile-photo-wrapper {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  margin-right: 14px;
+  flex-shrink: 0;
+}
+
+.profile-photo {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.profile-avatar-fallback {
+  display: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #e5e7eb;
+  color: #374151;
+  font-weight: 600;
+  font-size: 1rem;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: -0.5px;
+}
+
+/* Stack Name & Title Directly Below */
+.profile-text {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center;
+}
+
+.profile-name {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+  font-size: 1.25rem !important; /* 20px */
+  font-weight: 600 !important;
+  color: #111827 !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.01em;
+}
+
+.profile-title {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+  font-size: 0.875rem !important; /* 14px */
+  font-weight: 400 !important;
+  color: #6b7280 !important;
+  margin-top: 3px !important;
+  line-height: 1.2 !important;
+}
+
+/* Right Navigation Typography */
 .site-nav .page-link {
-  font-size: 1.05rem;
-  font-weight: 500;
-  color: #333;
-  text-decoration: none;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+  font-size: 0.95rem !important;
+  font-weight: 500 !important;
+  color: #374151 !important;
+  text-decoration: none !important;
 }
 
 .site-nav .page-link:hover {
-  text-decoration: underline;
-}
-
-/* Justify blog post content */
-.post-content {
-  text-align: justify;
-  text-justify: inter-word; /* Enhances word spacing for cleaner justification */
-  hyphens: auto;           /* Automatically breaks long words at margins */
-}
-
-/* Keep headings, code blocks, and captions readable/left-aligned */
-.post-content h1, 
-.post-content h2, 
-.post-content h3, 
-.post-content pre, 
-.post-content code, 
-.post-content table {
-  text-align: left;
+  color: #111827 !important;
 }

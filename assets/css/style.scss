@@ -19,3 +19,20 @@
 .site-nav .page-link:hover {
   text-decoration: underline;
 }
+
+/* Justify blog post content */
+.post-content {
+  text-align: justify;
+  text-justify: inter-word; /* Enhances word spacing for cleaner justification */
+  hyphens: auto;           /* Automatically breaks long words at margins */
+}
+
+/* Keep headings, code blocks, and captions readable/left-aligned */
+.post-content h1, 
+.post-content h2, 
+.post-content h3, 
+.post-content pre, 
+.post-content code, 
+.post-content table {
+  text-align: left;
+}

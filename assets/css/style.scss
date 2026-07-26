@@ -133,6 +133,17 @@
   transition: color 0.15s ease !important;
 }
 
+/* Contact links below the icons */
+.footer-links {
+  display: flex !important;
+  flex-direction: column !important;   /* stacked; see note below for one line */
+  align-items: center !important;
+  gap: 4px !important;
+  text-align: center !important;
+  font-size: 0.85rem !important;
+  word-break: break-word !important;   /* keep long URLs from overflowing on mobile */
+}
+
 .footer-link:hover {
   color: #111827 !important;
   text-decoration: underline !important;
@@ -164,8 +175,10 @@
   max-width: 800px; /* Matches the site body width */
   margin: 0 auto;
   display: flex !important;
+  flex-direction: column !important;  /* ADD: stack icons over links */
   justify-content: center !important;
   align-items: center !important;
+  gap: 14px !important;               /* ADD: space between icon row and links */
 }
 
 .footer-icons {

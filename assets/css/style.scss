@@ -22,38 +22,29 @@
   color: inherit !important;
 }
 
-/* Photo and Fallback Avatar Circle */
+/* Square Image Tile matching Vikas Chandra's site */
 .profile-photo-wrapper {
-  position: relative;
   width: 48px;
   height: 48px;
   margin-right: 14px;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px; /* Square tile with subtle rounded corners */
+  overflow: hidden;
 }
 
 .profile-photo {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   display: block;
 }
 
-.profile-avatar-fallback {
-  display: none;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background-color: #e5e7eb;
-  color: #374151;
-  font-weight: 600;
-  font-size: 1rem;
-  align-items: center;
-  justify-content: center;
-  letter-spacing: -0.5px;
-}
-
-/* Stack Name & Title Directly Below */
+/* Stacked Name & Title (Exact Font Stack & Sizes) */
 .profile-text {
   display: flex !important;
   flex-direction: column !important;
@@ -61,7 +52,7 @@
 }
 
 .profile-name {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji" !important;
   font-size: 1.25rem !important; /* 20px */
   font-weight: 600 !important;
   color: #111827 !important;
@@ -70,15 +61,15 @@
 }
 
 .profile-title {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji" !important;
   font-size: 0.875rem !important; /* 14px */
   font-weight: 400 !important;
   color: #6b7280 !important;
-  margin-top: 3px !important;
+  margin-top: 2px !important;
   line-height: 1.2 !important;
 }
 
-/* Right Navigation Typography */
+/* Right Navigation Links */
 .site-nav .page-link {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
   font-size: 0.95rem !important;

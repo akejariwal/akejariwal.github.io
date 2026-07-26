@@ -1,9 +1,15 @@
 ---
-layout: home
+layout: default
 title: Blog
 ---
 
-Welcome to my technical notes and thoughts on (On-Device) AI, Reasoning, Infra, Performance and Leadership.
+## Blog
 
----
-
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <strong>[{{ post.date | date: "%Y-%m-%d" }}]:</strong> 
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    </li>
+  {% endfor %}
+</ul>

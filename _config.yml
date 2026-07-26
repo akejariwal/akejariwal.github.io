@@ -1,14 +1,15 @@
 title: Arun Kejariwal
-description: ""          # Removing this removes the description line
+description: "AI Research & Systems"          # Removing this removes the description line
 author: ""               # Removing this removes the repeated name lines
 
 # If using repo name 'blog', set baseurl to "/blog". Otherwise leave empty "".
 baseurl: "" 
 url: "https://akejariwal.github.io"
 permalink: /:year-:month-:day-:slug.html
+theme: minima
 
 header_pages:
-  - index.md
+#  - index.md
   - publications.md
 
 markdown: kramdown

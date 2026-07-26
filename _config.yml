@@ -5,6 +5,7 @@ theme: minima
 # If using repo name 'blog', set baseurl to "/blog". Otherwise leave empty "".
 baseurl: "" 
 url: "https://akejariwal.github.io"
+permalink: /:year-:month-:day-:slug.html
 
 header_pages:
   - index.md

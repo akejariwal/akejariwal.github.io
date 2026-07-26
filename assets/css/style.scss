@@ -2,63 +2,20 @@
 ---
 @import "{{ site.theme }}";
 
-/* Header Layout Alignment */
 .custom-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding: 18px 0;
 }
 
-/* Left Profile Area */
-.header-profile {
-  display: flex;
-  align-items: center;
-}
-
-.profile-link {
-  display: flex;
-  align-items: center;
-  text-decoration: none !important;
-  color: inherit;
-}
-
-.profile-photo {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-right: 14px;
-}
-
-.profile-text {
-  display: flex;
-  flex-direction: column;
-}
-
-.profile-name {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #111;
-  line-height: 1.2;
-}
-
-.profile-title {
-  font-size: 0.875rem;
-  color: #666;
-  margin-top: 2px;
-}
-
-/* Right Navigation Area */
 .site-nav .page-link {
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 500;
   color: #333;
   text-decoration: none;
 }
 
 .site-nav .page-link:hover {
-  color: #000;
   text-decoration: underline;
 }

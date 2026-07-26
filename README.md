@@ -1,2 +1,2 @@
-# https-akejariwal.github.io-blog
+# https://akejariwal.github.io/
 Arun Kejariwal's Blog

@@ -1,0 +1,16 @@
+title: Arun Kejariwal
+description: (On-Device) AI, Reasoning, Infra, Performance
+theme: minima
+
+# If using repo name 'blog', set baseurl to "/blog". Otherwise leave empty "".
+baseurl: "/blog" 
+url: "https://akejariwal.github.io"
+
+header_pages:
+  - index.md
+  - publications.md
+
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag

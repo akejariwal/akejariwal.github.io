@@ -3,7 +3,7 @@ description: (On-Device) AI, Reasoning, Infra, Performance
 theme: minima
 
 # If using repo name 'blog', set baseurl to "/blog". Otherwise leave empty "".
-baseurl: "/blog" 
+baseurl: "" 
 url: "https://akejariwal.github.io"
 
 header_pages:

@@ -150,3 +150,41 @@
     align-items: flex-start !important;
   }
 }
+
+/* Full-Width Gray Strip Footer */
+.custom-site-footer {
+  width: 100% !important;
+  background-color: #f9fafb !important; /* Soft gray strip background */
+  border-top: 1px solid #e5e7eb !important;
+  padding: 28px 0 !important;
+  margin-top: 64px !important;
+}
+
+.footer-inner {
+  max-width: 800px; /* Matches the site body width */
+  margin: 0 auto;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.footer-icons {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 24px !important; /* Spacing between centered icons */
+}
+
+.footer-icon-link {
+  color: #6b7280 !important; /* Muted gray icon color */
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: color 0.15s ease-in-out, transform 0.15s ease-in-out !important;
+  text-decoration: none !important;
+}
+
+.footer-icon-link:hover {
+  color: #111827 !important; /* Darker gray/black on hover */
+  transform: translateY(-1px);
+}

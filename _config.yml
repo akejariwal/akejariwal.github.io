@@ -1,18 +1,25 @@
-title: Arun Kejariwal
-description: "AI Research & Systems"          # Removing this removes the description line
-author: ""               # Removing this removes the repeated name lines
+---
+layout: default
+title: Blog
+---
 
-# If using repo name 'blog', set baseurl to "/blog". Otherwise leave empty "".
-baseurl: "" 
-url: "https://akejariwal.github.io"
-permalink: /:year-:month-:day-:slug.html
-theme: minima
-
-header_pages:
-#  - index.md
-  - publications.md
-
-markdown: kramdown
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
+<div class="post-feed">
+  {% for post in site.posts %}
+    <article class="post-card">
+      <h2 class="post-card-title">
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      </h2>
+      <div class="post-card-date">
+        <em>{{ post.date | date: "%B %d, %Y" }}</em>
+      </div>
+      <div class="post-card-excerpt">
+        {% if post.description %}
+          {{ post.description }}
+        {% elsif post.excerpt %}
+          {{ post.excerpt | strip_html | truncatewords: 45 }}
+        {% endif %}
+      </div>
+      <a class="read-more-link" href="{{ post.url | relative_url }}">READ MORE</a>
+    </article>
+  {% endfor %}
+</div>

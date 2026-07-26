@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Publications
+title: Recent Publications
 permalink: /publications/
 ---
 

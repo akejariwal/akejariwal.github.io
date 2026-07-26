@@ -81,3 +81,23 @@
 .site-nav .page-link:hover {
   color: #111827 !important;
 }
+
+/* Fully justify body text in blog posts */
+.post-content {
+  text-align: justify !important;
+  text-justify: inter-word !important; /* Spacing adjustment across browsers */
+  hyphens: auto !important;           /* Hyphenates long words at line ends */
+}
+
+/* Ensure headings, code snippets, lists, and tables remain left-aligned */
+.post-content h1, 
+.post-content h2, 
+.post-content h3, 
+.post-content h4, 
+.post-content pre, 
+.post-content code, 
+.post-content ul, 
+.post-content ol, 
+.post-content table {
+  text-align: left !important;
+}

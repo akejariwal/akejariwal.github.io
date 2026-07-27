@@ -1,25 +1,29 @@
----
-layout: default
-title: Blog
----
+# Site settings
+title: "Arun Kejariwal"
+description: "AI Research & Systems"
+author: "Arun Kejariwal"
 
-<div class="post-feed">
-  {% for post in site.posts %}
-    <article class="post-card">
-      <h2 class="post-card-title">
-        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-      </h2>
-      <div class="post-card-date">
-        <em>{{ post.date | date: "%B %d, %Y" }}</em>
-      </div>
-      <div class="post-card-excerpt">
-        {% if post.description %}
-          {{ post.description }}
-        {% elsif post.excerpt %}
-          {{ post.excerpt | strip_html | truncatewords: 45 }}
-        {% endif %}
-      </div>
-      <a class="read-more-link" href="{{ post.url | relative_url }}">READ MORE</a>
-    </article>
-  {% endfor %}
-</div>
+# Site URL configuration
+# (For akejariwal.github.io root repository)
+url: "https://akejariwal.github.io"
+baseurl: ""
+
+# Clean post permalink format (e.g., https://akejariwal.github.io/2026-07-26-vrm.html)
+permalink: /:year-:month-:day-:slug.html
+
+# Header pages navigation (Only show Publications link at top right)
+header_pages:
+  - publications.md
+
+# Build settings & Theme
+theme: minima
+markdown: kramdown
+
+# KaTeX math rendering support
+kramdown:
+  math_engine: null
+
+# Jekyll Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag

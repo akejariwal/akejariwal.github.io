@@ -1,0 +1,11 @@
+{%- assign pdf = "/assets/docs/" | append: include.file | uri_escape | relative_url -%}
+<iframe src="{{ pdf }}#view=FitH"
+        width="100%" height="{{ include.height | default: 600 }}"
+        style="border: 1px solid #e1e4e8; border-radius: 6px; margin-top: 32px;">
+  <p>Your browser can't display the embedded PDF.
+     <a href="{{ pdf }}">Download Paper</a></p>
+</iframe>
+
+<p style="margin-top: 12px;">
+  <a href="{{ pdf }}" target="_blank" download>Download Paper</a>
+</p>

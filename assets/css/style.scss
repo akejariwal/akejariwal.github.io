@@ -246,7 +246,7 @@
   font-weight: 700 !important;
   line-height: 1.25 !important;
   margin-top: 0 !important;
-  margin-bottom: 2px !important; /* Reduced gap between title and date */
+  margin-bottom: 0px !important; /* Reduced gap between title and date */
   letter-spacing: -0.01em;
 }
 
@@ -265,7 +265,7 @@
   font-size: 0.875rem !important; /* 14px */
   font-weight: 400 !important;
   color: #6b7280 !important;
-  margin-bottom: 20px !important; /* Increased gap between date and description */
+  margin-bottom: 40px !important; /* Increased gap between date and description */
 }
 
 .post-card-date em {
@@ -278,7 +278,7 @@
   font-size: 1rem !important;
   line-height: 1.6 !important;
   color: #374151 !important;
-  margin-bottom: 24px !important; /* Increased gap between description and READ MORE */
+  margin-bottom: 36px !important; /* Increased gap between description and READ MORE */
   text-align: justify !important;
 }
 
@@ -286,7 +286,7 @@
 .read-more-link {
   display: inline-block !important;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
-  font-size: 0.75rem !important; /* Reduced from 13px to 12px */
+  font-size: 0.5rem !important; /* Reduced from 13px to 12px */
   font-weight: 600 !important;
   letter-spacing: 0.06em !important;
   text-transform: uppercase !important;

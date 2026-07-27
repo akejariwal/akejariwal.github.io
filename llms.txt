@@ -1,0 +1,10 @@
+# Arun Kejariwal — AI Research & Systems
+  > Notes on AI, vision, reasoning, and on-device AI and systems.
+
+  ## Posts
+  - [Optimization of Agentic Execution](https://akejariwal.github.io/2026-07-27-optimizing-agentic-execution.html): Parallels between compiler-driven program optimization and optimization of agentic execution.
+
+  - [VRM: Vision Reasoning Models](https://akejariwal.github.io/2026-07-26-vrm.html): evolution of visual reasoning models vs. VLMs.
+
+  ## Pages
+  - [Publications](https://akejariwal.github.io/publications/)

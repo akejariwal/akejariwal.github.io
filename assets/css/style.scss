@@ -17,37 +17,56 @@
 
 .profile-link {
   display: flex !important;
+  flex-direction: row !important;
   align-items: center !important;
   text-decoration: none !important;
   color: inherit !important;
 }
 
-/* Photo Container - Exact 52px Circular Avatar */
+/* Square Image Tile with Rounded Corners (52px x 52px) */
 .profile-photo-wrapper {
   position: relative;
   width: 52px !important;
   height: 52px !important;
   margin-right: 14px !important;
   flex-shrink: 0 !important;
+  border-radius: 10px !important; /* Square with rounded corners */
+  overflow: hidden !important;
+  background-color: #f3f4f6 !important;
+  border: 1px solid #e5e7eb !important;
 }
 
 .profile-photo {
   width: 52px !important;
   height: 52px !important;
-  border-radius: 50% !important;
+  border-radius: 10px !important;
   object-fit: cover !important;
   display: block;
 }
 
-/* Stacked Name & Title (Exact Font Stack & Sizes) */
-.profile-text {
-  display: flex !important;
-  flex-direction: column !important;
+/* Fallback square badge if image is absent */
+.profile-avatar-fallback {
+  display: none;
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  background-color: #e5e7eb;
+  color: #374151;
+  font-weight: 600;
+  font-size: 1rem;
+  align-items: center;
   justify-content: center;
 }
 
+/* Name & Subtitle Stacked on the Right of Image */
+.profile-text {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+}
+
 .profile-name {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji" !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
   font-size: 1.25rem !important; /* 20px */
   font-weight: 600 !important;
   color: #111827 !important;
@@ -56,15 +75,15 @@
 }
 
 .profile-title {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji" !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
   font-size: 0.875rem !important; /* 14px */
   font-weight: 400 !important;
   color: #6b7280 !important;
-  margin-top: 2px !important;
+  margin-top: 3px !important;
   line-height: 1.2 !important;
 }
 
-/* Right Navigation Links */
+/* Top Right Navigation */
 .site-nav .page-link {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
   font-size: 0.95rem !important;

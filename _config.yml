@@ -28,3 +28,5 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
+
+google_analytics: G-4Y8TNRTEG3

@@ -1,0 +1,30 @@
+---
+layout: default
+title: Blog
+---
+
+<div class="post-feed">
+  {% for post in site.posts %}
+    <article class="post-card">
+      <h2 class="post-card-title">
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      </h2>
+      
+      <div class="post-card-date">
+        <em>{{ post.date | date: "%B %d, %Y" }}</em>
+      </div>
+
+      <div class="post-card-excerpt">
+        {% if post.description %}
+          {{ post.description }}
+        {% else %}
+          {{ post.excerpt | strip_html | truncatewords: 45 }}
+        {% endif %}
+      </div>
+
+      <div class="post-card-readmore">
+        <a class="read-more-link" href="{{ post.url | relative_url }}">READ MORE</a>
+      </div>
+    </article>
+  {% endfor %}
+</div>

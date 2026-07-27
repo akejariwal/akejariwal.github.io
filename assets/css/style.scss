@@ -239,14 +239,15 @@
   border-bottom: none;
 }
 
-/* Post Title */
+/* 1. Post Title (Reduced bottom margin to title & date gap) */
 .post-card-title {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
   font-size: 1.5rem !important; /* 24px */
   font-weight: 700 !important;
-  line-height: 1.3 !important;
-  margin-bottom: 6px !important;
-  letter-spacing: -0.015em;
+  line-height: 1.25 !important;
+  margin-top: 0 !important;
+  margin-bottom: 2px !important; /* Reduced gap between title and date */
+  letter-spacing: -0.01em;
 }
 
 .post-card-title a {
@@ -258,36 +259,36 @@
   color: #2563eb !important;
 }
 
-/* Post Date: Italicized, NOT Bold */
+/* 2. Post Date (Increased bottom margin to description gap) */
 .post-card-date {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
-  font-size: 0.875rem !important;
+  font-size: 0.875rem !important; /* 14px */
   font-weight: 400 !important;
   color: #6b7280 !important;
-  margin-bottom: 14px !important;
+  margin-bottom: 20px !important; /* Increased gap between date and description */
 }
 
 .post-card-date em {
   font-style: italic !important;
 }
 
-/* Description / Excerpt */
+/* 3. Post Excerpt / Description (Increased bottom margin to READ MORE gap) */
 .post-card-excerpt {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
   font-size: 1rem !important;
   line-height: 1.6 !important;
   color: #374151 !important;
-  margin-bottom: 16px !important;
+  margin-bottom: 24px !important; /* Increased gap between description and READ MORE */
   text-align: justify !important;
 }
 
-/* READ MORE Link */
+/* 4. READ MORE Link (Reduced font size) */
 .read-more-link {
   display: inline-block !important;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
-  font-size: 0.8125rem !important; /* 13px */
+  font-size: 0.75rem !important; /* Reduced from 13px to 12px */
   font-weight: 600 !important;
-  letter-spacing: 0.05em !important;
+  letter-spacing: 0.06em !important;
   text-transform: uppercase !important;
   color: #2563eb !important;
   text-decoration: none !important;

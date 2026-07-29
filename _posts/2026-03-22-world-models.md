@@ -10,7 +10,7 @@ last_modified_at: 2026-03-22
 ---
 
 <div style="text-align: center; margin-bottom: 2em;">
-  <img src="{{ site.baseurl }}/assets/images/World Models.png" alt="Wrold Models" style="max-width: 75%; height: auto; border-radius: 8px;">
+  <img src="{{ site.baseurl }}/assets/images/World Models.png" alt="Wrold Models" style="max-width: 100%; height: auto; border-radius: 8px;">
 </div>
 
 As LLMs have gotten progressively better — winning IMO gold medal, solving long standing problems in several disciplines, 

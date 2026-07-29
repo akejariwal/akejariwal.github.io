@@ -1,10 +1,9 @@
 ---
 layout: post
-title: "Physical AI - World Models and How Children Learn"
+title: "World Models and How Children Learn"
 date: 2026-03-22
 description: "As Physical AI gains momentum, developing World Models has received lot of attention. 
-              This walk throughs a brief historical perspective, and nuggets one can borrow from 
-              how kids learn."
+              Are there nuggets one can borrow from deacdes long research on how kids learn?"
 categories: [world models, physical AI, LLMs]
 author: Arun Kejariwal
 last_modified_at: 2026-03-22

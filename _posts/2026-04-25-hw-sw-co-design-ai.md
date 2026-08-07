@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Enabling the AI Revolution via Hardware-Software Co-Design"
-date: 2024-04-25
+date: 2026-04-25
 description: "The accelerated growth in AI has fueled a multi-way arm race to build data 
               centers - AI infrastructure spend across the major tech players in 2026 is 
               projected to be around $700 billion! Ensuring high scalability, reliability, 

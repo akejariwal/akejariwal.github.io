@@ -12,6 +12,10 @@ categories: [systems, ai-infrastructure, hardware-sotware co-design]
 usemath: true
 ---
 
+<div style="text-align: center; margin-bottom: 2em;">
+  <img src="{{ site.baseurl }}/assets/images/HW-SW-Co-Design.png" alt="Smart Refrigerator" style="max-width: 75%; height: auto; border-radius: 8px;">
+</div>
+
 The rapid evolution of modern AI—from transformer-based Large Language Models (LLMs) to real-time 
 Vision-Reasoning Models (VRMs)—has exposed a critical bottleneck in computer engineering: the 
 traditional separation between hardware design and software execution is no longer sustainable.

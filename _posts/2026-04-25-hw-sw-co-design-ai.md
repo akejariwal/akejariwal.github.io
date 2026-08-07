@@ -13,7 +13,7 @@ usemath: true
 ---
 
 <div style="text-align: center; margin-bottom: 2em;">
-  <img src="{{ site.baseurl }}/assets/images/HW-SW-Co-Design.png" alt="Smart Refrigerator" style="max-width: 75%; height: auto; border-radius: 8px;">
+  <img src="{{ site.baseurl }}/assets/images/HW-SW-Co-Design.png" alt="HW-SW-Co-Design" style="max-width: 75%; height: auto; border-radius: 8px;">
 </div>
 
 The rapid evolution of modern AI—from transformer-based Large Language Models (LLMs) to real-time 

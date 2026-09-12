@@ -16,8 +16,6 @@ Recently, there has been a lot of chatter around harness engineering. This, in p
 
 Thanks [Vivek](https://www.linkedin.com/in/vivek-haldar-25261b3a/){:target="_blank" rel="noopener"} and [Milind](https://www.linkedin.com/in/milind-girkar-838a595/){:target="_blank" rel="noopener"} for the feedback on the early versions of the writeup.
 
-Thanks  for the feedback on the early versions of the writeup. 
-
 ---
 
 {% include pdf-embed.html file="Agentic Execution Optimization.pdf" %}

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "AI Infrastructure &#8594; Agent Harness"
+title: title: "AI Infrastructure → Agent Harness"
 date: 2026-09-21
 description: "Realizing a model’s capabilities depends on the system around it. What can lessons from AI infrastructure tell us about 
               optimizing agent harnesses - and narrowing task-specific gaps between open-weight and frontier models?"

@@ -17,7 +17,7 @@ across the harness. I also consider where these changes could help open-weight m
 on specific tasks. Feedback welcome!
 
 Thanks [Bikash](https://www.linkedin.com/in/bikashsharma/){:target="_blank" rel="noopener"} and 
-[Vivek](https://www.linkedin.com/in/vivek-haldar-25261b3a/){:target="_blank" rel="noopener"} for the feedback on the early versions of the essay.
+[Vivek](https://www.linkedin.com/in/vivek-haldar-25261b3a/){:target="_blank" rel="noopener"} for perusing the early versions of the essay.
 
 ---
 

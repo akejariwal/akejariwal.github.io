@@ -21,7 +21,7 @@ components, and the measurements themselves require validation. Agents add a fur
 and the criteria can reward behavior that misses the intended goal. Drawing on my experience across the two domains, I penned down these 
 parallels, where they hold, and where Agent Eval introduces new challenges. Feedback welcome!
 
-Thanks [Bikash](https://www.linkedin.com/in/bikashsharma/){:target="_blank" rel="noopener"} for the feedback on the early versions of the essay.
+Thanks [Bikash](https://www.linkedin.com/in/bikashsharma/){:target="_blank" rel="noopener"} for perusing the early versions of the essay.
 
 ---
 

@@ -18,12 +18,21 @@
       </a>
     </div>
 
-    <!-- Right: Publications Navigation -->
-    <nav class="site-nav">
-      <div class="trigger">
-        <a class="page-link" href="{{ '/publications/' | relative_url }}">Publications</a>
-      </div>
-    </nav>
+    <!-- Right: Logo tile stacked above the Publications link -->
+    <div class="header-right">
+      <a class="header-logo-link" href="{{ '/' | relative_url }}" aria-label="Home">
+        <div class="header-logo-wrapper">
+          <img src="{{ '/assets/images/alpha-arrow-logo-white-8000.png' | relative_url }}"
+               alt="Alpha arrow logo"
+               class="header-logo">
+        </div>
+      </a>
+      <nav class="site-nav">
+        <div class="trigger">
+          <a class="page-link" href="{{ '/publications/' | relative_url }}">Publications</a>
+        </div>
+      </nav>
+    </div>
 
   </div>
 </header>

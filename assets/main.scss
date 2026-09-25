@@ -6,7 +6,14 @@
 $header-tile-size: 72px;   /* profile photo tile: 70px image + 1px border on each side */
 $header-name-lh:   42px;   /* line box of .profile-name  (28px x 1.5) */
 $header-title-lh:  24px;   /* line box of .profile-title (16px x 1.5) */
-$header-logo-size: 40px;   /* logo tile, including its 1px border */
+$header-logo-height: 40px; /* height of the visible logo mark (the alpha + arrow) */
+
+/* The logo PNG (8000 x 6493) has white margins around the mark. The mark itself spans
+   x 1200-7076 and y 868-5802, so the page crops to that box; the visible mark then
+   lines up exactly with the photo's top edge and the text boundary. */
+$logo-img-w: 8000;  $logo-img-h: 6493;
+$logo-ink-x: 1200;  $logo-ink-y: 868;
+$logo-ink-w: 5876;  $logo-ink-h: 4934;
 
 /* Flexbox Header Container */
 .custom-header {
@@ -116,22 +123,26 @@ $header-logo-size: 40px;   /* logo tile, including its 1px border */
   line-height: 0 !important;
 }
 
-/* Same rounded-corner square treatment as .profile-photo-wrapper */
+/* Borderless logo: a window exactly the size of the mark, no tile or background */
 .header-logo-wrapper {
-  box-sizing: border-box !important;
-  width: $header-logo-size !important;
-  height: $header-logo-size !important;
-  border-radius: 10px !important;
-  overflow: hidden !important;
-  background-color: #fff !important;     /* matches the logo's white background */
-  border: 1px solid #e5e7eb !important;
+  position: relative !important;
+  width: $header-logo-height * $logo-ink-w / $logo-ink-h !important;
+  height: $header-logo-height !important;
+  overflow: hidden !important;           /* trims the PNG's white margins */
+  background: none !important;
+  border: 0 !important;
 }
 
 .header-logo {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: contain !important;        /* show the whole logo, no cropping */
+  position: absolute !important;
   display: block !important;
+  max-width: none !important;            /* minima caps img at 100% width */
+  width: percentage($logo-img-w / $logo-ink-w) !important;
+  height: auto !important;
+  left: percentage(-$logo-ink-x / $logo-ink-w) !important;
+  top: percentage(-$logo-ink-y / $logo-ink-h) !important;
+  /* The PNG's white background takes on the header's colour (#fdfdfd), so it blends in */
+  mix-blend-mode: multiply !important;
 }
 
 /* Neutralise minima's nav styles (incl. its mobile dropdown box) inside this header */

@@ -2,12 +2,30 @@
 ---
 @import "{{ site.theme }}";
 
+/* Header geometry (shared by the left profile block and the right logo/nav column) */
+$header-tile-size: 72px;   /* profile photo tile: 70px image + 1px border on each side */
+$header-name-lh:   42px;   /* line box of .profile-name  (28px x 1.5) */
+$header-title-lh:  24px;   /* line box of .profile-title (16px x 1.5) */
+$header-logo-size: 40px;   /* logo tile, including its 1px border */
+
 /* Flexbox Header Container */
 .custom-header {
   display: flex !important;
+  flex-wrap: wrap !important;   /* on very narrow screens the right column drops below */
   justify-content: space-between !important;
   align-items: center !important;
-  padding: 24px 0 !important;
+  gap: 12px 24px !important;
+  /* Vertical padding only, so the wrapper's side padding still applies and the
+     header's right edge matches the text boundary of the page content */
+  padding-top: 24px !important;
+  padding-bottom: 24px !important;
+}
+
+/* minima's .wrapper clearfix (::after) would become an extra flex item and,
+   with the gap above, push the right column 24px in from the text boundary */
+.custom-header::after {
+  content: none !important;
+  display: none !important;
 }
 
 .header-profile {
@@ -69,6 +87,7 @@
   font-family: "Iowan Old Style", Georgia, serif !important;
   font-weight: 300 !important;
   font-size: 28px !important;
+  line-height: $header-name-lh !important;
   letter-spacing: 1px !important;
   color: #333 !important;
 }
@@ -77,23 +96,96 @@
   font-family: "Iowan Old Style", Georgia, serif !important;
   font-weight: 400 !important;
   font-size: 16px !important;
+  line-height: $header-title-lh !important;
   color: #666 !important;
 }
 
-.site-nav { 
-  margin-left: auto !important; 
+/* Right column: logo on top, Publications at the bottom.
+   Same height as the photo tile, so the logo's top edge = the photo's top edge. */
+.header-right {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-end !important;      /* right edges sit on the text boundary */
+  justify-content: space-between !important;
+  height: $header-tile-size !important;
+  margin-left: auto !important;
 }
 
+.header-logo-link {
+  display: block !important;
+  line-height: 0 !important;
+}
+
+/* Same rounded-corner square treatment as .profile-photo-wrapper */
+.header-logo-wrapper {
+  box-sizing: border-box !important;
+  width: $header-logo-size !important;
+  height: $header-logo-size !important;
+  border-radius: 10px !important;
+  overflow: hidden !important;
+  background-color: #fff !important;     /* matches the logo's white background */
+  border: 1px solid #e5e7eb !important;
+}
+
+.header-logo {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;        /* show the whole logo, no cropping */
+  display: block !important;
+}
+
+/* Neutralise minima's nav styles (incl. its mobile dropdown box) inside this header */
+.custom-header .site-nav {
+  position: static !important;
+  float: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: none !important;
+  line-height: $header-title-lh !important;
+  text-align: right !important;
+}
+
+.custom-header .site-nav .trigger {
+  display: block !important;
+}
+
+/* Publications: same font size and line box as "AI Research & Systems" */
 .site-nav .page-link {
   font-family: "Iowan Old Style", Georgia, serif !important;
   font-weight: 300 !important;
-  font-size: 18px !important;
+  font-size: 16px !important;
+  line-height: $header-title-lh !important;
   letter-spacing: 1px !important;
   color: #333 !important;
 }
 
+/* ...and the same gap to the bottom of the photo tile as the title has,
+   so both sit on the same baseline: (72 - 42 - 24) / 2 = 3px */
+.custom-header .site-nav .page-link {
+  display: block !important;
+  padding: 0 !important;
+  margin: 0 0 (($header-tile-size - $header-name-lh - $header-title-lh) * 0.5) 0 !important;
+}
+
 .site-nav .page-link:hover {
   color: #111827 !important;
+}
+
+/* Phones: the right column wraps under the profile, so lay it out as a row */
+@media screen and (max-width: 480px) {
+  .header-right {
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 12px !important;
+    height: auto !important;
+  }
+
+  .custom-header .site-nav .page-link {
+    margin: 0 !important;
+  }
 }
 
 /* Fully justify body text in blog posts */

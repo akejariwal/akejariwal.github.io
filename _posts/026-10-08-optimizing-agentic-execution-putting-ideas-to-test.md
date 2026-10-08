@@ -346,7 +346,7 @@ The directive that tells the agent to stop once one check passes leaves the choi
 }
 
 /* ---------- Notes (footnotes) ---------- */
-.post-content ul.notes { font-size: 13px; line-height: 1.5; }
+.post-content ul.notes { font-size: 13px; line-height: 1.5; list-style: none; margin-left: 0; padding-left: 0; }
 .post-content ul.notes li { margin-bottom: 6px; padding: 2px 4px; border-radius: 3px; scroll-margin-top: 20px; }
 .post-content ul.notes li:target { background: #fff6cc; }
 .post-content ul.notes .fn-num { font-size: 0.75em; vertical-align: super; line-height: 0; margin-right: 2px; }

@@ -10,7 +10,7 @@ author: Arun Kejariwal
 last_modified_at: 2026-10-11
 ---
 
-An earlier post, [Optimization of Agentic Execution]({{ site.baseurl }}/2026-07-27-optimizing-agentic-execution.html), mapped compiler optimizations to agentic execution. Here we test whether six compiler-inspired directives, combined with a Bash-output cap, reduce cost and execution time on the following ten [Terminal-Bench 4.0](https://www.tbench.ai/news/terminal-bench-4-0){:target="_blank" rel="noopener"} tasks:
+An earlier post, [Optimization of Agentic Execution]({{ site.baseurl }}/2026-07-27-optimizing-agentic-execution.html), mapped compiler optimizations to agentic execution. Here we evaluate whether six compiler-inspired directives, combined with a Bash-output cap, reduce cost and execution time on the following ten [Terminal-Bench 4.0](https://www.tbench.ai/news/terminal-bench-4-0){:target="_blank" rel="noopener"} tasks:
 
 * `coq-block-bound`
 * `embedding-drift-monitor`

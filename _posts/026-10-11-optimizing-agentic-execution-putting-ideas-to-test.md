@@ -1,13 +1,13 @@
 ---
 layout: post
 title: "Optimizing Agentic Execution: Putting the Ideas to the Test"
-date: 2026-10-08
+date: 2026-10-11
 description: "Can compiler-inspired ideas make AI agents more efficient? Across ten Terminal-Bench tasks, a combined intervention
               cut cost by 21% and execution time by 24% among successful runs—but earlier stopping exposed a trade-off.
               Here’s what worked, what varied, and where the savings came from."
 categories: [agentic execution, harness optimization, eval, agents]
 author: Arun Kejariwal
-last_modified_at: 2026-10-08
+last_modified_at: 2026-10-11
 ---
 
 An earlier post, [Optimization of Agentic Execution]({{ site.baseurl }}/2026-07-27-optimizing-agentic-execution.html), mapped compiler optimizations to agentic execution. Here we test whether six compiler-inspired directives, combined with a Bash-output cap, reduce cost and execution time on the following ten [Terminal-Bench 4.0](https://www.tbench.ai/news/terminal-bench-4-0){:target="_blank" rel="noopener"} tasks:

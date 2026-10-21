@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Edge AI for Wearables: The Gearbox"
-date: 2026-09-28
+date: 2026-08-28
 description: "AI on wearables is subject to tight constraints: answer in under half a second, on about a watt, with a sliver of
               the memory a phone has. Getting there takes many knobs across models, data, compression and inference, turning
               together like gears. Which gears matter most, and where are they still stuck?"

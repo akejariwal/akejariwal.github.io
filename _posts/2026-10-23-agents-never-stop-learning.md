@@ -130,10 +130,10 @@ Note the tension with Sutton: every method here learns from human-provided targe
 
 Which brings us back to Sutton’s bet: intelligence comes from an agent’s own experience, not from human data. The lineage is older than LLMs:
 
-* <a href="https://doi.org/10.1145/122344.122377" target="_blank" rel="noopener"><strong>Dyna</strong> (Sutton, 1991)</a>: learn a model of the world from experience, then plan with it.
-* <a href="https://doi.org/10.1038/s41586-020-03051-4" target="_blank" rel="noopener"><strong>MuZero</strong> (Schrittwieser et al., 2020)</a>: a learned model plus search mastered Atari, Go, chess and shogi without being told the rules.
-* <a href="https://doi.org/10.1038/s41586-024-07711-7" target="_blank" rel="noopener"><strong>Loss of plasticity</strong> (Dohare et al., 2024)</a>: standard deep networks gradually lose the ability to learn, which is the core obstacle to truly continual learning.
-* <a href="https://storage.googleapis.com/deepmind-media/Era-of-Experience%20/The%20Era%20of%20Experience%20Paper.pdf" target="_blank" rel="noopener"><strong>The Era of Experience</strong> (Silver &amp; Sutton, 2025)</a>: the manifesto for agents that learn from streams of their own experience, grounded in real-world signals.
+* <a href="https://doi.org/10.1145/122344.122377" target="_blank" rel="noopener">Dyna (Sutton, 1991)</a>: learn a model of the world from experience, then plan with it.
+* <a href="https://doi.org/10.1038/s41586-020-03051-4" target="_blank" rel="noopener">MuZero (Schrittwieser et al., 2020)</a>: a learned model plus search mastered Atari, Go, chess and shogi without being told the rules.
+* <a href="https://doi.org/10.1038/s41586-024-07711-7" target="_blank" rel="noopener">Loss of plasticity (Dohare et al., 2024)</a>: standard deep networks gradually lose the ability to learn, which is the core obstacle to truly continual learning.
+* <a href="https://storage.googleapis.com/deepmind-media/Era-of-Experience%20/The%20Era%20of%20Experience%20Paper.pdf" target="_blank" rel="noopener">The Era of Experience (Silver &amp; Sutton, 2025)</a>: the manifesto for agents that learn from streams of their own experience, grounded in real-world signals.
 
 Sutton doubts LLMs have world models at all; Dwarkesh thinks they do. Either way, the next frontier isn’t a bigger context window. It’s agents that never stop learning.
 

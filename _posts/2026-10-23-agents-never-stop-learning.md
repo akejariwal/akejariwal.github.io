@@ -25,9 +25,9 @@ The podcast had a lot to think over. A few things:
 
 I was quite surprised to hear Sutton’s take that imitation plays at most a small role in how infants learn. I had read otherwise based on prior work in developmental psychology. A few works are tabulated below:
 
-<div class="table-wrap" style="--tw: 1717px">
+<div class="table-wrap" style="--tw: 1392px">
 <table class="pdf-table t-blog t-dev">
-  <colgroup><col style="width: 7.7%"><col style="width: 5.8%"><col style="width: 9.6%"><col style="width: 15.6%"><col style="width: 15.8%"><col style="width: 18.9%"><col style="width: 26.5%"></colgroup>
+  <colgroup><col style="width: 7.2%"><col style="width: 6.0%"><col style="width: 8.9%"><col style="width: 15.4%"><col style="width: 18.0%"><col style="width: 19.4%"><col style="width: 25.1%"></colgroup>
   <thead>
     <tr><th class="vsep-l">Develop&shy;mental stage</th><th class="vsep-l">Typical age</th><th class="vsep-l">Retention</th><th class="vsep-l">Primary mechanism</th><th class="vsep-l">Characteristic performance</th><th class="vsep-l">Relevant literature</th><th>Notes</th></tr>
   </thead>
@@ -166,6 +166,11 @@ Sutton doubts LLMs have world models at all; Dwarkesh thinks they do. Either way
 .post-content p,
 .post-content li { text-align: justify !important; text-justify: inter-word; }
 
+/* Post title: shrink just enough to sit on one line within the text column (desktop; minima keeps its own size <= 800px) */
+@media screen and (min-width: 801px) {
+  .post-header .post-title { font-size: 28px; white-space: normal; }
+}
+
 /* Sub-bullets: unfilled circles */
 .post-content ul ul { list-style-type: circle !important; }
 
@@ -214,6 +219,7 @@ Sutton doubts LLMs have world models at all; Dwarkesh thinks they do. Either way
 }
 .post-content table.pdf-table tbody td { border-bottom: 1px solid #c9d3de; }
 .post-content table.pdf-table .metric { color: #38761d; }
+.post-content table.t-blog tbody td { text-align: justify; text-justify: inter-word; }
 .post-content table.pdf-table .vsep-l { border-right: 1px solid #c9c9c9; }
 .post-content table.t-blog tbody tr:last-child td,
 .post-content table.t-blog tbody td.last-group { border-bottom: 1px solid #000; }
@@ -226,3 +232,21 @@ Sutton doubts LLMs have world models at all; Dwarkesh thinks they do. Either way
 .post-content ul.notes .fn-num { font-size: 0.75em; vertical-align: super; line-height: 0; margin-right: 2px; }
 .post-content ul.notes .fn-back { text-decoration: none; margin-left: 2px; }
 </style>
+
+<script>
+(function () {
+  /* Fine-tune the title size so it fits on one line of the text column, whatever font the reader's OS supplies */
+  var title = document.querySelector('.post-header .post-title');
+  if (!title) { return; }
+  var fit = function () {
+    title.style.fontSize = '';
+    if (!window.matchMedia('(min-width: 801px)').matches) { return; }
+    var size = 42;                      /* minima's desktop title size: shrink from here until it fits */
+    title.style.fontSize = size + 'px';
+    var oneLine = function () { return title.getBoundingClientRect().height < size * 1.5; };
+    while (!oneLine() && size > 22) { size -= 0.5; title.style.fontSize = size + 'px'; }
+  };
+  fit();
+  window.addEventListener('resize', fit);
+})();
+</script>

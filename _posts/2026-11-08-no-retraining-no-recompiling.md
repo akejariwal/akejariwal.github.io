@@ -20,7 +20,7 @@ Weight-space editing makes a trained network better without retraining it, much 
 * *\[Binary\]* Optimizers such as <a href="https://arxiv.org/pdf/1807.06735" target="_blank" rel="noopener">BOLT</a> (Binary Optimization and Layout Tool) rewrite a finished executable using a profile of how it runs, and gain mostly through code layout. In a recent experiment, BOLT made the C++ compiler in GCC 16.2 (the GNU Compiler Collection) build the LLVM compiler infrastructure 15% faster, with byte-identical output, while executing about 1% fewer instructions ([Appendix A](#appendix-a)).
 {: .tldr-list}
 
-<div class="fig-wide fig-hero" style="--fw: 1300px">
+<div class="fig-wide fig-hero" style="width: 100%; margin-left: 0; transform: none;">
   <img src="{{ site.baseurl }}/assets/images/network-and-binary-editing-4k%20v0.5.webp" width="3840" height="1500" decoding="async" alt="Animation, Weight-space Editing ↔ Binary Optimization: on the left, an edit spreads through a language model’s weights; on the right, BOLT moves a binary’s hot code into one compact region">
 </div>
 

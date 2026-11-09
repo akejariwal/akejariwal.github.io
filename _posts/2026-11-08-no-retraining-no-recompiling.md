@@ -21,8 +21,10 @@ Weight-space editing makes a trained network better without retraining it, much 
 {: .tldr-list}
 
 <div class="fig-wide fig-hero" style="width: 100%; margin-left: 0; transform: none;">
-  <img src="{{ site.baseurl }}/assets/images/network-and-binary-editing-4k%20v0.5.webp" width="3840" height="1500" decoding="async" alt="Animation, Weight-space Editing ↔ Binary Optimization: on the left, an edit spreads through a language model’s weights; on the right, BOLT moves a binary’s hot code into one compact region">
+  <a class="plot-zoom" href="{{ site.baseurl }}/assets/images/network-and-binary-editing-4k%20v0.5.webp"><img src="{{ site.baseurl }}/assets/images/network-and-binary-editing-4k%20v0.5.webp" width="3840" height="1500" decoding="async" alt="Animation, Weight-space Editing ↔ Binary Optimization: on the left, an edit spreads through a language model’s weights; on the right, BOLT moves a binary’s hot code into one compact region"></a>
 </div>
+
+<p class="plot-hint">Click on the animation to zoom in.</p>
 
 Both edit the finished artifact rather than its source, which neither recovers; interpretability researchers even describe a network’s parameters as <a href="https://www.transformer-circuits.pub/2022/mech-interp-essay" target="_blank" rel="noopener">“in some sense a binary computer program”</a>. A weight edit is worked out from the current weights and from how the network behaves on chosen inputs; BOLT works from the binary’s disassembly and a runtime profile, and reorders the code to cut misses in the instruction cache and the instruction translation lookaside buffer (iTLB).
 
@@ -149,11 +151,13 @@ This appendix describes the experiment behind the BOLT numbers in the TL;DR and 
 
 ### A.1 Setup {#appendix-a1}
 
-<div class="fig-wide" id="figure-a1" style="--fw: 1300px">
-  <img src="{{ site.baseurl }}/assets/images/Bin%20Opt%20workflow-4k.gif" width="3840" height="673" loading="lazy" decoding="async" alt="Figure A1, animated: build GCC 16.2 (51 min), instrument cc1plus, profile GCC compiling GCC in 1,139 runs (42 min), rewrite with BOLT (under 1 min), time five pairs of LLVM builds (5.5 hours), record heatmaps (2 min), save results, analyze">
+<div class="fig-wide" id="figure-a1" style="width: 100%; margin-left: 0; transform: none;">
+  <a class="plot-zoom" href="{{ site.baseurl }}/assets/images/Bin%20Opt%20workflow-4k.gif"><img src="{{ site.baseurl }}/assets/images/Bin%20Opt%20workflow-4k.gif" width="3840" height="673" loading="lazy" decoding="async" alt="Figure A1, animated: build GCC 16.2 (51 min), instrument cc1plus, profile GCC compiling GCC in 1,139 runs (42 min), rewrite with BOLT (under 1 min), time five pairs of LLVM builds (5.5 hours), record heatmaps (2 min), save results, analyze"></a>
 </div>
 
-<p class="fig-caption">Figure A1. The experiment’s workflow and the time each stage took.</p>
+<p class="fig-caption with-hint">Figure A1. The experiment’s workflow and the time each stage took.</p>
+
+<p class="plot-hint">Click on the animation to zoom in.</p>
 
 The experiment compares two builds of the same compiler on one cloud virtual machine (VM):
 
@@ -253,6 +257,11 @@ Profile-guided code layout predates BOLT; later systems lay code out at link tim
 </table>
 </div>
 
+<div class="plot-lightbox" id="plot-lightbox" role="dialog" aria-modal="true" aria-label="Enlarged animation. Press Escape or click to close." hidden>
+  <button type="button" class="plot-lightbox-close" aria-label="Close">&times;</button>
+  <img id="plot-lightbox-img" src="data:," alt="">
+</div>
+
 <style>
 .post-content { font-family: Arial, "Helvetica Neue", Helvetica, "Liberation Sans", sans-serif; font-size: 16px; color: #000; }
 .post-content a { color: #1155cc; }
@@ -300,9 +309,17 @@ Profile-guided code layout predates BOLT; later systems lay code out at link tim
 /* Figures: wide like the tables, centred on the text column; captions below */
 .post-content .fig-wide { width: min(var(--fw, 100%), calc(100vw - 48px)); margin: 10px 0 8px 50%; transform: translateX(-50%); }
 .post-content .fig-wide img { display: block; width: 100%; height: auto; }
-.post-content .fig-wide.fig-hero { margin-bottom: 26px; }
 .post-content p.fig-caption { text-align: center !important; font-size: 14px; line-height: 1.4; color: #555555; margin: 6px 0 22px 0; }
 .post-content p.fig-caption.long { text-align: justify !important; }
+.post-content p.fig-caption.with-hint { margin-bottom: 2px; }
+
+/* Click to zoom: the animations open in a centred viewer, 65% of the screen width */
+.post-content .fig-wide a.plot-zoom { display: block; line-height: 0; cursor: zoom-in; }
+.post-content p.plot-hint { text-align: center !important; font-size: 0.875rem; font-style: italic; color: #6b7280; margin: 6px 0 24px 0; }
+.plot-lightbox { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; background: rgba(17, 17, 17, 0.78); cursor: zoom-out; }
+.plot-lightbox[hidden] { display: none; }
+.plot-lightbox img { width: 65vw; height: auto; max-height: 94vh; object-fit: contain; background: #ffffff; border-radius: 4px; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45); }
+.plot-lightbox-close { position: absolute; top: 10px; right: 18px; border: 0; background: none; color: #ffffff; font: 36px/1 Arial, sans-serif; cursor: pointer; }
 
 /* Notes (footnotes) */
 .post-content ul.notes { font-size: 13px; line-height: 1.5; list-style: none; margin-left: 0; padding-left: 0; }
@@ -311,9 +328,10 @@ Profile-guided code layout predates BOLT; later systems lay code out at link tim
 .post-content ul.notes .fn-num { font-size: 0.75em; vertical-align: super; line-height: 0; margin-right: 2px; }
 .post-content ul.notes .fn-back { text-decoration: none; margin-left: 2px; }
 
-/* Narrow screens: the narrow table takes the full width */
+/* Narrow screens: the narrow table takes the full width; the viewer widens */
 @media screen and (max-width: 800px) {
   .post-content table.t-narrow { width: 100%; }
+  .plot-lightbox img { width: 94vw; }
 }
 </style>
 
@@ -332,5 +350,37 @@ Profile-guided code layout predates BOLT; later systems lay code out at link tim
   };
   fit();
   window.addEventListener('resize', fit);
+})();
+</script>
+
+<script>
+(function () {
+  /* Open an animation in a centred viewer; Escape or a click closes it */
+  var box = document.getElementById('plot-lightbox');
+  var big = document.getElementById('plot-lightbox-img');
+  if (!box || !big) { return; }
+  document.body.appendChild(box);
+  var opener = null;
+  var close = function () {
+    if (box.hidden) { return; }
+    box.hidden = true;
+    big.removeAttribute('src');
+    document.documentElement.style.overflow = '';
+    if (opener) { opener.focus(); opener = null; }
+  };
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest ? e.target.closest('a.plot-zoom') : null;
+    if (!link) { return; }
+    e.preventDefault();
+    var thumb = link.querySelector('img');
+    big.src = link.href;
+    big.alt = thumb ? thumb.alt : '';
+    opener = link;
+    box.hidden = false;
+    document.documentElement.style.overflow = 'hidden';
+    box.querySelector('.plot-lightbox-close').focus();
+  });
+  box.addEventListener('click', close);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { close(); } });
 })();
 </script>

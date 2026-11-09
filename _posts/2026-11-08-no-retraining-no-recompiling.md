@@ -266,8 +266,8 @@ Profile-guided code layout predates BOLT; later systems lay code out at link tim
 .post-content { font-family: Arial, "Helvetica Neue", Helvetica, "Liberation Sans", sans-serif; font-size: 16px; color: #000; }
 .post-content a { color: #1155cc; }
 .post-content a:hover { text-decoration: underline; }
-.post-content h2 { font-family: Arial, "Helvetica Neue", Helvetica, "Liberation Sans", sans-serif; font-size: 20px; font-weight: 400; line-height: 1.3; letter-spacing: 0; color: #434343; margin: 30px 0 8px 0; }
-.post-content h3 { font-family: Arial, "Helvetica Neue", Helvetica, "Liberation Sans", sans-serif; font-size: 17.5px; font-weight: 400; line-height: 1.3; color: #666666; margin: 24px 0 8px 0; }
+.post-content h2 { font-family: Arial, "Helvetica Neue", Helvetica, "Liberation Sans", sans-serif; font-size: 20px; font-weight: 400; line-height: 1.3; letter-spacing: 0; color: #434343; margin: 22px 0 8px 0; }
+.post-content h3 { font-family: Arial, "Helvetica Neue", Helvetica, "Liberation Sans", sans-serif; font-size: 17.5px; font-weight: 400; line-height: 1.3; color: #666666; margin: 18px 0 6px 0; }
 .post-content p, .post-content li { text-align: justify !important; text-justify: inter-word; }
 
 /* Post title: no-JS fallback size that keeps the title on one line; the script below fine-tunes it */
@@ -275,9 +275,9 @@ Profile-guided code layout predates BOLT; later systems lay code out at link tim
   .post-header .post-title { font-size: 27px; white-space: normal; }
 }
 
-/* TL;DR: an empty line below the label, and a gap before the post begins */
-.post-content p.tldr { margin-bottom: 1.6em; }
-.post-content ul.tldr-list { margin-bottom: 1.8em; }
+/* TL;DR: the label sits close to its text; a short gap before the animation */
+.post-content p.tldr { margin-bottom: 6px; }
+.post-content ul.tldr-list { margin-bottom: 12px; }
 
 .post-content ul ul { list-style-type: circle !important; }
 
@@ -291,8 +291,9 @@ Profile-guided code layout predates BOLT; later systems lay code out at link tim
 .post-content sup.fnref a:hover { color: #1155cc; text-decoration: underline; }
 
 /* Tables: purple bold headers, green first column, light dividers */
-.post-content .table-wrap { width: min(var(--tw, 100%), calc(100vw - 48px)); margin-left: 50%; transform: translateX(-50%); overflow-x: auto; }
-.post-content table.pdf-table { width: 100%; border-collapse: collapse; border: 0; margin: 8px auto 26px auto; font-family: Arial, "Helvetica Neue", Helvetica, "Liberation Sans", sans-serif; font-size: 14.5px; line-height: 1.35; color: #000; background: none; hyphens: manual; }
+.post-content .table-wrap { width: min(var(--tw, 100%), calc(100vw - 48px)); margin: -3px 0 14px 50%; transform: translateX(-50%); overflow-x: auto; }
+.post-content h2 + .table-wrap, .post-content h3 + .table-wrap { margin-top: 6px; }
+.post-content table.pdf-table { width: 100%; border-collapse: collapse; border: 0; margin: 0 auto; font-family: Arial, "Helvetica Neue", Helvetica, "Liberation Sans", sans-serif; font-size: 14.5px; line-height: 1.35; color: #000; background: none; hyphens: manual; }
 .post-content table.t-blog { table-layout: fixed; }
 .post-content table.pdf-table tr, .post-content table.pdf-table tr:nth-child(even) { background: none; }
 .post-content table.pdf-table th, .post-content table.pdf-table td { border: 0; background: none; padding: 8px 8px; vertical-align: middle; text-align: left; }
@@ -304,18 +305,18 @@ Profile-guided code layout predates BOLT; later systems lay code out at link tim
 .post-content table.t-blog tbody td.lft { text-align: left; }
 .post-content table.pdf-table .vsep-l { border-right: 1px solid #c9c9c9; }
 .post-content table.t-blog tbody tr:last-child td, .post-content table.t-blog tbody td.last-group { border-bottom: 1px solid #000; }
-.post-content table.t-narrow { width: 86.5%; margin-bottom: 6px; }
+.post-content table.t-narrow { width: 86.5%; margin: 4px auto 0 auto; }
 
 /* Figures: wide like the tables, centred on the text column; captions below */
-.post-content .fig-wide { width: min(var(--fw, 100%), calc(100vw - 48px)); margin: 10px 0 8px 50%; transform: translateX(-50%); }
+.post-content .fig-wide { width: min(var(--fw, 100%), calc(100vw - 48px)); margin: 6px 0 4px 50%; transform: translateX(-50%); }
 .post-content .fig-wide img { display: block; width: 100%; height: auto; }
-.post-content p.fig-caption { text-align: center !important; font-size: 14px; line-height: 1.4; color: #555555; margin: 6px 0 22px 0; }
+.post-content p.fig-caption { text-align: center !important; font-size: 14px; line-height: 1.4; color: #555555; margin: 4px 0 14px 0; }
 .post-content p.fig-caption.long { text-align: justify !important; }
-.post-content p.fig-caption.with-hint { margin-bottom: 2px; }
+.post-content p.fig-caption.with-hint { margin-bottom: 0; }
 
 /* Click to zoom: the animations open in a centred viewer, 65% of the screen width */
 .post-content .fig-wide a.plot-zoom { display: block; line-height: 0; cursor: zoom-in; }
-.post-content p.plot-hint { text-align: center !important; font-size: 0.875rem; font-style: italic; color: #6b7280; margin: 6px 0 24px 0; }
+.post-content p.plot-hint { text-align: center !important; font-size: 0.875rem; font-style: italic; color: #6b7280; margin: 2px 0 12px 0; }
 .plot-lightbox { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; background: rgba(17, 17, 17, 0.78); cursor: zoom-out; }
 .plot-lightbox[hidden] { display: none; }
 .plot-lightbox img { width: 65vw; height: auto; max-height: 94vh; object-fit: contain; background: #ffffff; border-radius: 4px; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45); }

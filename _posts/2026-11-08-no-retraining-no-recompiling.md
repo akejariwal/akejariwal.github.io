@@ -176,7 +176,7 @@ The VM was a Google Cloud `c4-standard-8`: an Intel Xeon Platinum 8581C with 4 c
 
 The BOLT-optimized compiler built LLVM 14.75% faster (95% confidence interval, 14.50–15%): a 34.8-minute build took 30.3 minutes. Every pair gained between 14.6% and 15.1%, and the two compilers produced byte-identical output: all 2,672 object files of the first pair matched. Hardware counters, recorded over each whole build, show where the gain came from ([Figure A2](#figure-a2)).
 
-<div class="fig-wide" id="figure-a2" style="--fw: 860px">
+<div class="fig-wide" id="figure-a2" style="--fw: 90%">
   <img src="{{ site.baseurl }}/assets/images/Bin%20Opt%20counters-4k.png" width="3840" height="1881" loading="lazy" decoding="async" alt="Figure A2: change from A to B in each perf stat count, mean of five pairs: iTLB misses -50.48%, L1 i-cache misses -40.83%, branch misses -15.24%, wall time -12.85%, cycles -12.75%, branches executed -2.82%, instructions executed -1.11%">
 </div>
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "AI Memory: The Cost of Remembering"
-date: 2026-11-14
+date: 2026-11-15
 description: "A 10M-token context can demand over a terabyte of KV cache,
               even for a standard 8B model. Notes, persistent caches and
               learned weights offer other ways to retain experience, shifting
@@ -10,7 +10,7 @@ description: "A 10M-token context can demand over a terabyte of KV cache,
               the answer depend on reuse?"
 categories: [agent memory, KV cache, long context, continual learning, AI infrastructure]
 author: Arun Kejariwal
-last_modified_at: 2026-11-14
+last_modified_at: 2026-11-15
 ---
 
 Twenty-five years after my last visit, I can still recollect the seating inside the <a href="https://en.wikipedia.org/wiki/Lotus_Temple" target="_blank" rel="noopener">Lotus Temple</a>, without a photograph or other persisted artifact to search. Could an AI agent keep its experience that long? Not by default: <a href="https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents" target="_blank" rel="noopener">each new session starts with no memory of the last</a>. To remember, an agent must preserve a trace, in an external record or in its learned parameters.

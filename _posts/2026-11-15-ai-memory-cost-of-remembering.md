@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "AI Memory: The Cost of Remembering"
-date: 2026-11-15
+date: 2026-11-14
 description: "A 10M-token context can demand over a terabyte of KV cache,
               even for a standard 8B model. Notes, persistent caches and
               learned weights offer other ways to retain experience, shifting
@@ -10,7 +10,7 @@ description: "A 10M-token context can demand over a terabyte of KV cache,
               the answer depend on reuse?"
 categories: [agent memory, KV cache, long context, continual learning, AI infrastructure]
 author: Arun Kejariwal
-last_modified_at: 2026-11-15
+last_modified_at: 2026-11-14
 ---
 
 Twenty-five years after my last visit, I can still recollect the seating inside the <a href="https://en.wikipedia.org/wiki/Lotus_Temple" target="_blank" rel="noopener">Lotus Temple</a>, without a photograph or other persisted artifact to search. Could an AI agent keep its experience that long? Not by default: <a href="https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents" target="_blank" rel="noopener">each new session starts with no memory of the last</a>. To remember, an agent must preserve a trace, in an external record or in its learned parameters.
@@ -41,15 +41,13 @@ A longer window’s main appeal is that it preserves evidence whose importance b
 
 Organized memory takes a different route: a <a href="https://www.anthropic.com/research/components-of-agent-memory" target="_blank" rel="noopener">recent study</a> uses dreaming, an offline review of past sessions, to correct notes and build wiki pages without changing model weights. A <a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f" target="_blank" rel="noopener">wiki pattern</a> describes this representation: interlinked pages compiled from retained raw sources. On 25 questions over a 420M-token corpus, wiki plus search met 61% of graded criteria versus 53% for search alone, after 128 dreaming sessions. Those sessions are offline compute, spent before any question arrives; the infrastructure question is how often their output is reused.
 
-Learned memory goes a step further, from notes to weights: through distillation, a model is trained to reproduce useful behavior without the original material in context. A <a href="https://arxiv.org/pdf/2606.03979" target="_blank" rel="noopener">sleep framework</a> applies this to <a href="https://arxiv.org/pdf/2512.24695" target="_blank" rel="noopener">Hope</a>, a model whose memory is a hierarchy: fast components adapt quickly and slow ones change rarely, preserving knowledge ([Figure 1](#figure-1)). During sleep, the model distills fast, recent memories into new low-rank parameters in slower layers, then dreams, using reinforcement learning to generate practice data that rehearses new knowledge and refines existing skills. On <a href="https://arxiv.org/pdf/2406.10149" target="_blank" rel="noopener">BABILong’s synthetic tests of chaining scattered facts</a>, a Hope model with sleep, fine-tuned for the benchmark, stayed near-perfect up to 10M tokens: retention on one task, not recall of arbitrary experience.
-
-<div class="fig-wide" id="figure-1" style="--fw: 460px">
+<div class="fig-right" id="figure-1">
   <a class="plot-zoom" href="{{ site.baseurl }}/assets/images/Fig1_memory_at_three_speeds_4K_v2.png"><img src="{{ site.baseurl }}/assets/images/Fig1_memory_at_three_speeds_4K_v2.png" width="3840" height="3102" loading="lazy" decoding="async" alt="Figure 1: a three-level memory stack. New input enters the context window, is absorbed into fast memory, and during sleep is distilled into slow, durable memory; a dream loop rehearses from slow memory back into fast memory. An arrow beside the stack marks memory getting slower and more durable from top to bottom."></a>
+  <p class="fig-caption">Figure 1. Memory at three speeds, after Hope and the sleep framework. Sleep distills fast memory into slow, durable layers.</p>
+  <p class="plot-hint">Click on the figure to zoom in.</p>
 </div>
 
-<p class="fig-caption long with-hint">Figure 1. Memory at three speeds, after Hope and the sleep framework. Sleep distills fast memory into slow, durable layers.</p>
-
-<p class="plot-hint">Click on the figure to zoom in.</p>
+Learned memory goes a step further, from notes to weights: through distillation, a model is trained to reproduce useful behavior without the original material in context. A <a href="https://arxiv.org/pdf/2606.03979" target="_blank" rel="noopener">sleep framework</a> applies this to <a href="https://arxiv.org/pdf/2512.24695" target="_blank" rel="noopener">Hope</a>, a model whose memory is a hierarchy: fast components adapt quickly and slow ones change rarely, preserving knowledge ([Figure 1](#figure-1)). During sleep, the model distills fast, recent memories into new low-rank parameters in slower layers, then dreams, using reinforcement learning to generate practice data that rehearses new knowledge and refines existing skills. On <a href="https://arxiv.org/pdf/2406.10149" target="_blank" rel="noopener">BABILong’s synthetic tests of chaining scattered facts</a>, a Hope model with sleep, fine-tuned for the benchmark, stayed near-perfect up to 10M tokens: retention on one task, not recall of arbitrary experience.
 
 Learning and reasoning can reinforce each other. <a href="https://arxiv.org/pdf/2506.10943" target="_blank" rel="noopener">SEAL</a> rewards self-edits, the training data and update settings a model writes for itself, when the resulting update improves later answers, including on selected <a href="https://github.com/fchollet/ARC-AGI" target="_blank" rel="noopener">ARC puzzles</a>. <a href="https://arxiv.org/pdf/2601.19897" target="_blank" rel="noopener">Self-Distillation Fine-Tuning</a> trains a model on its own answers, steering them toward what the same model says after seeing expert demonstrations. Because the targets are its own outputs, updates stay close to current behavior, which <a href="https://arxiv.org/pdf/2509.04259" target="_blank" rel="noopener">RL’s Razor</a> links to less forgetting. Taught science questions, tool use and medical questions in turn, the model kept each earlier skill; with ordinary fine-tuning, each skill degraded once training moved on. The risk is self-bias: the authors note that the model can pick up spurious patterns from its own guided answers, and repeated training on generated text can cause <a href="https://www.nature.com/articles/s41586-024-07566-y" target="_blank" rel="noopener">model collapse</a>, where rare content vanishes. A <a href="https://arxiv.org/pdf/2610.05872" target="_blank" rel="noopener">newer study</a> argues that on-policy training is not required: it fine-tunes a checkpoint from before post-training and grafts the scaled weight change onto the deployed model, learning new tasks while matching or improving old ones.<sup class="fnref" id="fnref-1"><a href="#fn-1">1</a></sup>
 
@@ -125,15 +123,13 @@ The right yardstick is total cost per successfully completed task, with one-time
 .post-content table.t-blog tbody td { text-align: justify; text-justify: inter-word; }
 .post-content table.pdf-table .vsep-l { border-right: 1px solid #c9c9c9; }
 .post-content table.t-blog tbody tr:last-child td, .post-content table.t-blog tbody td.last-group { border-bottom: 1px solid #000; }
-/* Figures: centred on the text column; captions below */
-.post-content .fig-wide { width: min(var(--fw, 100%), calc(100vw - 48px)); margin: 6px 0 4px 50%; transform: translateX(-50%); }
-.post-content .fig-wide img { display: block; width: 100%; height: auto; }
-.post-content p.fig-caption { text-align: center !important; font-size: 14px; line-height: 1.4; color: #555555; margin: 4px 0 14px 0; }
-.post-content p.fig-caption.long { text-align: justify !important; }
-.post-content p.fig-caption.with-hint { margin-bottom: 0; }
+/* Figure 1: floats right at a quarter of the text width; the text wraps around it */
+.post-content .fig-right { float: right; width: 25%; margin: 5px 0 8px 22px; }
+.post-content .fig-right a.plot-zoom { display: block; line-height: 0; cursor: zoom-in; }
+.post-content .fig-right img { display: block; width: 100%; height: auto; }
+.post-content .fig-right p.fig-caption { font-size: 12px; line-height: 1.4; color: #555555; text-align: justify !important; hyphens: auto; margin: 6px 0 0 0; }
+.post-content .fig-right p.plot-hint { font-size: 12px; font-style: italic; color: #6b7280; text-align: center !important; margin: 4px 0 0 0; }
 /* Click to zoom: the figure opens in a centred viewer, 65% of the screen width */
-.post-content .fig-wide a.plot-zoom { display: block; line-height: 0; cursor: zoom-in; }
-.post-content p.plot-hint { text-align: center !important; font-size: 0.875rem; font-style: italic; color: #6b7280; margin: 2px 0 12px 0; }
 .plot-lightbox { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; background: rgba(17, 17, 17, 0.78); cursor: zoom-out; }
 .plot-lightbox[hidden] { display: none; }
 .plot-lightbox img { width: 65vw; height: auto; max-height: 94vh; object-fit: contain; background: #ffffff; border-radius: 4px; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45); }
@@ -144,7 +140,10 @@ The right yardstick is total cost per successfully completed task, with one-time
 .post-content ul.notes li:target { background: #fff6cc; }
 .post-content ul.notes .fn-num { font-size: 0.75em; vertical-align: super; line-height: 0; margin-right: 2px; }
 .post-content ul.notes .fn-back { text-decoration: none; margin-left: 2px; }
-/* Narrow screens: the viewer widens */
+/* Narrow screens: the figure stops floating and the viewer widens */
+@media screen and (max-width: 600px) {
+  .post-content .fig-right { float: none; width: 75%; margin: 6px auto 14px auto; }
+}
 @media screen and (max-width: 800px) {
   .plot-lightbox img { width: 94vw; }
 }

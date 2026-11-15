@@ -124,7 +124,7 @@ The right yardstick is total cost per successfully completed task, with one-time
 .post-content table.pdf-table .vsep-l { border-right: 1px solid #c9c9c9; }
 .post-content table.t-blog tbody tr:last-child td, .post-content table.t-blog tbody td.last-group { border-bottom: 1px solid #000; }
 /* Figure 1: floats right at a quarter of the text width; the text wraps around it */
-.post-content .fig-right { float: right; width: 25%; margin: 5px 0 8px 22px; }
+.post-content .fig-right { float: right; width: 40%; margin: 5px 0 8px 22px; }
 .post-content .fig-right a.plot-zoom { display: block; line-height: 0; cursor: zoom-in; }
 .post-content .fig-right img { display: block; width: 100%; height: auto; }
 .post-content .fig-right p.fig-caption { font-size: 12px; line-height: 1.4; color: #555555; text-align: justify !important; hyphens: auto; margin: 6px 0 0 0; }

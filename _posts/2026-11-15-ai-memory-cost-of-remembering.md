@@ -55,7 +55,15 @@ Notes, wikis and learned weights cut rereading, but they keep only what seemed w
 
 ## Infrastructure Implications {#infrastructure-implications}
 
-An agent’s full history can sit in durable storage; only the tokens in active use need GPU memory, and 10M of them change the economics. As a model reads, it caches the attention keys and values of every token in every layer, so they need not be recomputed for each new token. For an illustrative 8B model, this key/value (KV) cache takes 131,072 bytes per token (keys and values: 2&nbsp;&times; 32 layers&nbsp;&times; 8 KV heads&nbsp;&times; 128 dimensions&nbsp;&times; 2 bytes): *131 GB at 1M tokens* and *1.31 TB at 10M* for one conversation, excluding weights, more than the combined memory of sixteen 80-GB H100s.
+An agent’s full history can sit in durable storage; only the tokens in active use need GPU memory, and 10M of them change the economics. As a model reads, it caches the attention keys and values of every token in every layer, so they need not be recomputed for each new token. For an illustrative 8B model, this key/value (KV) cache takes 131,072 bytes per token: 2 (a key and a value)&nbsp;&times; 32 layers&nbsp;&times; 8 KV heads&nbsp;&times; 128 dimensions&nbsp;&times; 2 bytes per 16-bit number ([Figure 2](#figure-2)). That is *131 GB at 1M tokens* and *1.31 TB at 10M* for one conversation, excluding weights, more than the combined memory of sixteen 80-GB H100s.
+
+<div class="fig-wide" id="figure-2" style="width: 100%; margin-left: 0; transform: none;">
+  <a class="plot-zoom" href="{{ site.baseurl }}/assets/images/Fig2_kv_cache_dataflow_4K_v2.webp"><img src="{{ site.baseurl }}/assets/images/Fig2_kv_cache_dataflow_4K_v2.webp" width="3840" height="1350" loading="lazy" decoding="async" alt="Animation of one decoding step: a token moves through Layer 1, Layer 2, Layers 3 to 31 and Layer 32, then through output projection and token selection to the next token. In each layer it first writes its key (purple) and value (green) into that layer&#x27;s KV cache; then its query attends to past and current keys and values, which are read back up. Two equations count in step: 2 (key and value) times 32 layers times 8 KV heads times 128 dimensions times 2 bytes gives 131,072 KV bytes added by this token, and 131,072 bytes per cached token times 10M tokens in context gives about 1.31 TB of KV bytes read in this step. Writes stay constant per token; reads grow with context."></a>
+</div>
+
+<p class="fig-caption long with-hint">Figure 2. One decoding step of the illustrative 8B model, with full attention and a 16-bit KV cache (layers 3-31 condensed; timing illustrative). In each layer, the current query attends to past and current keys and values, and the new ones are kept for future steps. Actual memory and network traffic depend on the implementation.</p>
+
+<p class="plot-hint">Click on the animation to zoom in.</p>
 
 With the same architecture and precision, going from 1M to 10M tokens means roughly *100&times; the attention arithmetic during prefill* (reading the prompt) and *10&times; the attention work and KV reads per generated token*; these are scaling estimates, not latency predictions. Systems that run prefill and decoding (generating the answer) on <a href="https://arxiv.org/pdf/2401.09670" target="_blank" rel="noopener">separate GPUs</a> must also copy each request’s cache between them: 1.31 TB at 10M tokens. A paused agent ties up its cache too; evicting it frees GPU memory, but resuming then means reloading it from CPU memory or SSD, if it was saved there, or recomputing it from the text. Three practices keep these costs in check:
 
@@ -123,7 +131,15 @@ The right yardstick is total cost per successfully completed task, with one-time
 .post-content table.t-blog tbody td { text-align: justify; text-justify: inter-word; }
 .post-content table.pdf-table .vsep-l { border-right: 1px solid #c9c9c9; }
 .post-content table.t-blog tbody tr:last-child td, .post-content table.t-blog tbody td.last-group { border-bottom: 1px solid #000; }
-/* Figure 1: floats right at a quarter of the text width; the text wraps around it */
+/* Figures: centred on the text column (Figure 2), captions below */
+.post-content .fig-wide { width: min(var(--fw, 100%), calc(100vw - 48px)); margin: 6px 0 4px 50%; transform: translateX(-50%); }
+.post-content .fig-wide img { display: block; width: 100%; height: auto; }
+.post-content .fig-wide a.plot-zoom { display: block; line-height: 0; cursor: zoom-in; }
+.post-content p.fig-caption { text-align: center !important; font-size: 14px; line-height: 1.4; color: #555555; margin: 4px 0 14px 0; }
+.post-content p.fig-caption.long { text-align: justify !important; }
+.post-content p.fig-caption.with-hint { margin-bottom: 0; }
+.post-content p.plot-hint { text-align: center !important; font-size: 0.875rem; font-style: italic; color: #6b7280; margin: 2px 0 12px 0; }
+/* Figure 1: floats right at 40% of the text width; the text wraps around it */
 .post-content .fig-right { float: right; width: 40%; margin: 5px 0 8px 22px; }
 .post-content .fig-right a.plot-zoom { display: block; line-height: 0; cursor: zoom-in; }
 .post-content .fig-right img { display: block; width: 100%; height: auto; }
